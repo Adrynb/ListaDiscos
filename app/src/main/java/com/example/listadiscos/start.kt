@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
-import com.example.listadiscos.R.layout.fragment_start
 
 class start : Fragment() {
 
@@ -17,21 +16,23 @@ class start : Fragment() {
         fun newInstance() = start()
     }
 
-    private lateinit var viewModel: View
+    private lateinit var view: View
     private lateinit var starView : StartViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = inflater.inflate(R.layout.fragment_start, container, false)
-        viewModel.findViewById<ImageView>(R.id.imageView).setOnClickListener{
+        view = inflater.inflate(R.layout.fragment_start, container, false)
+        view.findViewById<ImageView>(R.id.imageView).setOnClickListener{
             val fm : FragmentManager = parentFragmentManager
             fm.commit {
-
+                replace(R.id.fragmentContainerView, ListFragment.newInstance())
+                addToBackStack("Remplazo")
             }
+            true
         }
-        return inflater.inflate(fragment_start, container, false)
+       return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
