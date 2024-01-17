@@ -27,24 +27,11 @@ class StartViewModel : ViewModel() {
             Disco(
                 "cat",
                 2,
-                "Melodía sintética optimista."
+                "Musica tope chula"
             )
         )
 
-        this.discos.add(
-            Disco(
-                "blocks",
-                3,
-                "Melodía optimista retro"
-            )
-        )
 
-        this.discos.add(
-            Disco(
-                "chirp",
-                4,
-                "Es optimista y pegadiza"
-            )
-        )
+
     }
 }

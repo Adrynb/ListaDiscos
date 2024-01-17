@@ -4,41 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Detail">
+    tools:context=".DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TableLayout
-            android:layout_width="372dp"
-            android:layout_height="632dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="23dp"
-            android:layout_marginBottom="83dp"
+            android:layout_width="407dp"
+            android:layout_height="736dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="parent">
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="351dp"
                 android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/nombreDisco"
-                    android:layout_width="75dp"
+                    android:layout_width="159dp"
                     android:layout_height="match_parent"
                     android:text="Nombre:"
-                    android:textAlignment="center" />
+                    android:textAlignment="viewStart" />
 
                 <TextView
                     android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
                     android:text="Pepe"
-                    android:textAlignment="center" />
+                    android:textAlignment="viewStart" />
 
             </TableRow>
 
@@ -52,14 +49,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ID:"
-                    android:textAlignment="center" />
+                    android:textAlignment="viewStart" />
 
                 <TextView
                     android:id="@+id/textView5"
-                    android:layout_width="347dp"
+                    android:layout_width="147dp"
                     android:layout_height="wrap_content"
                     android:text="1"
-                    android:textAlignment="center" />
+                    android:textAlignment="viewStart" />
             </TableRow>
 
             <TableRow
@@ -70,14 +67,15 @@
                     android:id="@+id/discoDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Descripción:" />
+                    android:text="Descripción:"
+                    android:textAlignment="viewStart" />
 
                 <TextView
                     android:id="@+id/textView7"
-                    android:layout_width="302dp"
+                    android:layout_width="245dp"
                     android:layout_height="match_parent"
                     android:text="El mas guapo"
-                    android:textAlignment="center" />
+                    android:textAlignment="viewStart" />
             </TableRow>
 
         </TableLayout>

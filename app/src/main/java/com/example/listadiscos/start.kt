@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 
@@ -24,13 +25,16 @@ class start : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         view = inflater.inflate(R.layout.fragment_start, container, false)
+        view.findViewById<TextView>(R.id.textView).setText("Bienvenido!")
         view.findViewById<ImageView>(R.id.imageView).setOnClickListener{
             val fm : FragmentManager = parentFragmentManager
             fm.commit {
                 replace(R.id.fragmentContainerView, ListFragment.newInstance())
-                addToBackStack("Remplazo")
+                addToBackStack("remplacement")
             }
             true
+
+
         }
        return view
     }

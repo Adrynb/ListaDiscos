@@ -15,10 +15,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Detail.newInstance] factory method to
+ * Use the [DetailFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Detail : Fragment() {
+class DetailFragment : Fragment() {
 
     private lateinit var view : View
     private val startViewModel: StartViewModel by activityViewModels()
@@ -28,11 +28,11 @@ class Detail : Fragment() {
     }
 
 
-    public fun update(){
+    public fun update() {
         this.startViewModel.selectDisco?.let {
-            view.findViewById<TextView>(R.id.nombreDisco).setText(it.nombre)
-            view.findViewById<TextView>(R.id.discoID).setText(it.numeroID.toString())
-            view.findViewById<TextView>(R.id.discoDescription).setText(it.descripcion)
+            view.findViewById<TextView>(R.id.nombreDisco).text = it.nombre
+            view.findViewById<TextView>(R.id.discoID).text = it.numeroID.toString()
+            view.findViewById<TextView>(R.id.discoDescription).text = it.descripcion
         }
     }
 
@@ -40,7 +40,6 @@ class Detail : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_detail, container, false)
         this.update()
 
@@ -54,12 +53,12 @@ class Detail : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Detail.
+         * @return A new instance of fragment DetailFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
-            Detail().apply {
+            DetailFragment().apply {
 
             }
     }

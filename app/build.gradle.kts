@@ -7,6 +7,10 @@ android {
     namespace = "com.example.listadiscos"
     compileSdk = 34
 
+    viewBinding{
+       enable = true
+    }
+
     buildFeatures{
         dataBinding = true
         viewBinding = true
