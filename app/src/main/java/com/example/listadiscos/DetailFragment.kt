@@ -1,10 +1,12 @@
 package com.example.listadiscos
 
+import EditFragment
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 
@@ -30,21 +32,36 @@ class DetailFragment : Fragment() {
 
     public fun update() {
         this.startViewModel.selectDisco?.let {
-            view.findViewById<TextView>(R.id.nombreDisco).text = it.nombre
-            view.findViewById<TextView>(R.id.discoID).text = it.numeroID.toString()
-            view.findViewById<TextView>(R.id.discoDescription).text = it.descripcion
+            view.findViewById<TextView>(R.id.nombreDetail).text = it.nombre
+            view.findViewById<TextView>(R.id.numeroDetail).text = it.numeroID.toString()
+            view.findViewById<TextView>(R.id.descripcionDetail).text = it.descripcion
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
+
     ): View? {
         view = inflater.inflate(R.layout.fragment_detail, container, false)
         this.update()
 
+        val editButton : Button = view.findViewById(R.id.editarLista)
+        editButton.setOnClickListener{
+            val editFragment = EditFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragmentContainerView, editFragment)
+            transaction.addToBackStack("replacement")
+            transaction.commit()
+        }
+
+
+
         return view
     }
+
+
 
     companion object {
         /**

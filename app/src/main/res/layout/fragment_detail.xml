@@ -11,13 +11,14 @@
         android:layout_height="match_parent">
 
         <TableLayout
-            android:layout_width="407dp"
-            android:layout_height="736dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="368dp"
+            android:layout_height="566dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="36dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TableRow
                 android:layout_width="351dp"
@@ -26,15 +27,15 @@
                 <TextView
                     android:id="@+id/nombreDisco"
                     android:layout_width="159dp"
-                    android:layout_height="match_parent"
-                    android:text="Nombre:"
+                    android:layout_height="36dp"
+                    android:text=" Nombre:"
                     android:textAlignment="viewStart" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/nombreDetail"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:text="Pepe"
+                    android:text=" Pepe"
                     android:textAlignment="viewStart" />
 
             </TableRow>
@@ -47,15 +48,15 @@
                 <TextView
                     android:id="@+id/discoID"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ID:"
+                    android:layout_height="38dp"
+                    android:text=" ID:"
                     android:textAlignment="viewStart" />
 
                 <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="147dp"
-                    android:layout_height="wrap_content"
-                    android:text="1"
+                    android:id="@+id/numeroDetail"
+                    android:layout_width="205dp"
+                    android:layout_height="match_parent"
+                    android:text=" 1"
                     android:textAlignment="viewStart" />
             </TableRow>
 
@@ -66,19 +67,29 @@
                 <TextView
                     android:id="@+id/discoDescription"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Descripción:"
+                    android:layout_height="33dp"
+                    android:text=" Descripción:"
                     android:textAlignment="viewStart" />
 
                 <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="245dp"
+                    android:id="@+id/descripcionDetail"
+                    android:layout_width="196dp"
                     android:layout_height="match_parent"
-                    android:text="El mas guapo"
+                    android:text=" El mas guapo"
                     android:textAlignment="viewStart" />
+
             </TableRow>
 
         </TableLayout>
 
+        <Button
+            android:id="@+id/editarLista"
+            android:layout_width="126dp"
+            android:layout_height="59dp"
+            android:layout_marginBottom="44dp"
+            android:text="EDITAR"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

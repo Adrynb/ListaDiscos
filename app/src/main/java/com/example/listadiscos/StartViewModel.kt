@@ -3,6 +3,10 @@ package com.example.listadiscos
 import androidx.lifecycle.ViewModel
 
 class StartViewModel : ViewModel() {
+    fun notifyDataChanged() {
+        TODO("Not yet implemented")
+    }
+
     private var discos: MutableList<Disco> = mutableListOf()
     private var selectedDisk: Disco? = null
 
