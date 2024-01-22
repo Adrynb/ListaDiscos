@@ -24,7 +24,6 @@ class EditFragment : Fragment() {
     ): View? {
         view = inflater.inflate(R.layout.fragment_edit, container, false)
 
-
         editTextNuevoNombre = view.findViewById(R.id.editTextNuevoNombre)
         editTextNuevaDescripcion = view.findViewById(R.id.editTextNuevaDescripcion)
         botonGuardar = view.findViewById(R.id.botonGuardar)

@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class ListFragment : Fragment() {
@@ -39,7 +40,7 @@ class ListFragment : Fragment() {
                 addToBackStack("replacement")
             }
         }
-        val layoutManager = GridLayoutManager(this.context, 2)
+        val layoutManager = LinearLayoutManager(requireContext())
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adaptador
         return view

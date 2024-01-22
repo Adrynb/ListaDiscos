@@ -33,7 +33,7 @@ class DetailFragment : Fragment() {
     public fun update() {
         this.startViewModel.selectDisco?.let {
             view.findViewById<TextView>(R.id.nombreDetail).text = it.nombre
-            view.findViewById<TextView>(R.id.numeroDetail).text = it.numeroID.toString()
+            view.findViewById<TextView>(R.id.discoID).text = it.numeroID.toString()
             view.findViewById<TextView>(R.id.descripcionDetail).text = it.descripcion
         }
     }
@@ -41,27 +41,22 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-
-
     ): View? {
         view = inflater.inflate(R.layout.fragment_detail, container, false)
         this.update()
 
-        val editButton : Button = view.findViewById(R.id.editarLista)
-        editButton.setOnClickListener{
+        val editButton: Button = view.findViewById(R.id.editarLista)
+        editButton.setOnClickListener {
             val editFragment = EditFragment()
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragmentContainerView, editFragment)
             transaction.addToBackStack("replacement")
             transaction.commit()
+
+
         }
-
-
-
         return view
     }
-
-
 
     companion object {
         /**
