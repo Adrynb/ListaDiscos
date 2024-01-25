@@ -33,7 +33,6 @@ class DetailFragment : Fragment() {
     public fun update() {
         this.startViewModel.selectDisco?.let {
             view.findViewById<TextView>(R.id.nombreDetail).text = it.nombre
-            view.findViewById<TextView>(R.id.discoID).text = it.numeroID.toString()
             view.findViewById<TextView>(R.id.descripcionDetail).text = it.descripcion
         }
     }
