@@ -2,42 +2,45 @@ package com.example.listadiscos
 
 import androidx.lifecycle.ViewModel
 
+
 class StartViewModel : ViewModel() {
+
     fun notifyDataChanged() {
         TODO("Not yet implemented")
     }
 
-    private var discos: MutableList<Disco> = mutableListOf()
-    private var selectedDisk: Disco? = null
+    // Lista mutable de discos y disco seleccionado
+    private var dataDiscoMutableList: MutableList<DataDisco> = mutableListOf()
+    private var selectedDisk: DataDisco? = null
 
-    // Corrected property name from discoss to discos
-    val discoss: List<Disco>
-        get() = discos.toList()
+    // Propiedad de solo lectura que devuelve la lista de discos
+    val discoList: List<DataDisco>
+        get() = dataDiscoMutableList.toList()
 
-    var selectDisco: Disco?
+    // Propiedad para obtener y establecer el disco seleccionado
+    var selectDataDisco: DataDisco?
         get() = selectedDisk
         set(item) { selectedDisk = item }
 
     init {
-        this.discos.add(
-            Disco(
+        // Agrega algunos discos predefinidos a la lista mutable
+        this.dataDiscoMutableList.add(
+            DataDisco(
                 "13",
                 "Pista de ambiente consiste en ruidos rupestres, tintineos metalicos, salpicaduras, viento y disparos de arcos amortiguados."
             )
         )
 
-        this.discos.add(
-            Disco(
+        this.dataDiscoMutableList.add(
+            DataDisco(
                 "cat",
                 "Musica tope chula"
             )
         )
-
-
-
     }
 
-    fun addDisco(disco: Disco) {
-        discos.add(disco)
+    // Método para agregar un nuevo disco a la lista
+    fun addDisco(dataDisco: DataDisco) {
+        dataDiscoMutableList.add(dataDisco)
     }
 }

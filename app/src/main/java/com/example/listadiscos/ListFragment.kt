@@ -21,51 +21,53 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Infla el diseño de fragmento_list.xml en la vista
         val view = inflater.inflate(R.layout.fragment_list, container, false)
 
+        // Configura el RecyclerView para que aparezca la lista de discos buscando su id
         val recyclerView: RecyclerView = view.findViewById(R.id.listaDiscos)
-        val adaptador = DiscosRecyclerViewAdapter(this.viewModel.discoss)
+        val adaptador = DiscosRecyclerViewAdapter(this.viewModel.discoList)
 
+        // Define la acción a realizar cuando se hace clic en un elemento del RecyclerView
         adaptador.click = { position, disco ->
-
-            this.viewModel.selectDisco = disco
+            // Almacenar el disco seleccionado en el ViewModel compartido
+            this.viewModel.selectDataDisco = disco
             val fm: FragmentManager = parentFragmentManager
 
+            // Verifica si el dispositivo no está en orientación "landscape"
             if (!resources.getBoolean(R.bool.land)) {
-                println("Entras aqui?")
-
+                // Reemplazar el fragmento actual con el DetailFragment
                 fm.commit {
-                    replace(R.id.fragmentContainerView, DetailFragment.newInstance())
+                    replace(R.id.fragmentContainerView, DetailFragment.newInstance()) //Se crea una nueva instancia de Detail.
                     addToBackStack("replacement")
                 }
             } else {
-
-                println("Entras pepe?")
+                // Si está en orientación "landscape", actualizar el DetailFragment existente
                 val contenedor = view.findViewById<FragmentContainerView>(R.id.detailfragmentContainerView)
                 val fragmentManager = childFragmentManager
                 var fragment = fragmentManager.findFragmentById(contenedor?.id ?: -1)
                 if (fragment != null && fragment is DetailFragment) {
                     fragment.update()
                 }
-
             }
         }
 
+        // Configurar el botón para agregar un nuevo disco
         view.findViewById<Button>(R.id.newDiscoButton).setOnClickListener {
             val fm: FragmentManager = parentFragmentManager
             fm.commit {
-                replace(R.id.fragmentContainerView, AddFragment.newInstance())
+                replace(R.id.fragmentContainerView, AddFragment.newInstance()) //Al presionar el boton se creará una nueva instancia del Addfragment
                 addToBackStack("replacement")
             }
         }
 
+        // Configurar el LayoutManager y el adaptador para el RecyclerView
         val layoutManager = LinearLayoutManager(requireContext())
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adaptador
 
-        return view
+        return view // Devuelve la vista inflada
     }
-
     companion object {
         @JvmStatic
         fun newInstance() = ListFragment()

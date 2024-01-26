@@ -30,8 +30,8 @@ class DetailFragment : Fragment() {
     }
 
 
-    public fun update() {
-        this.startViewModel.selectDisco?.let {
+    public fun update() { //Funcion que se encarga de mandar la informacion del disco seleccionado a las ids nombre y descripcion del fragmento Detalle
+        this.startViewModel.selectDataDisco?.let {
             view.findViewById<TextView>(R.id.nombreDetail).text = it.nombre
             view.findViewById<TextView>(R.id.descripcionDetail).text = it.descripcion
         }
@@ -41,11 +41,13 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        //Vista que infla el fragment_detail.xml
         view = inflater.inflate(R.layout.fragment_detail, container, false)
         this.update()
 
         val editButton: Button = view.findViewById(R.id.editarLista)
-        editButton.setOnClickListener {
+        editButton.setOnClickListener {//Boton que abre el fragmentoEditar al ser clickeado.
             val editFragment = EditFragment()
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragmentContainerView, editFragment)
@@ -54,7 +56,7 @@ class DetailFragment : Fragment() {
 
 
         }
-        return view
+        return view //devuelve la vista
     }
 
     companion object {

@@ -29,7 +29,7 @@ class EditFragment : Fragment() {
         botonGuardar = view.findViewById(R.id.botonGuardar)
 
         // Obtener los datos actuales del ViewModel y mostrarlos en los EditText
-        val discoActual = startViewModel.selectDisco
+        val discoActual = startViewModel.selectDataDisco
         editTextNuevoNombre.setText(discoActual?.nombre)
         editTextNuevaDescripcion.setText(discoActual?.descripcion)
 
@@ -44,7 +44,7 @@ class EditFragment : Fragment() {
             discoActual?.descripcion = nuevaDescripcion
 
 
-            // Volver al fragmento anterior (DetailFragment)
+            // Volver al fragmento anterior
             requireActivity().supportFragmentManager.popBackStack()
         }
 

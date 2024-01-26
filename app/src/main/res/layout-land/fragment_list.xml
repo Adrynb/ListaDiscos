@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <!-- Cambiado el layout_width y layout_weight del FragmentContainerView -->
+
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/detailfragmentContainerView"
             android:name="com.example.listadiscos.DetailFragment"
@@ -25,7 +25,6 @@
 
     </LinearLayout>
 
-    <!-- Añadido un RelativeLayout para colocar el botón "AÑADIR" en la esquina inferior izquierda -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
